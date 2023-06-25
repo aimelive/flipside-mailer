@@ -5,6 +5,7 @@ FlipsideMailer - A simple npm package to send emails asynchronously built on top
 ### Sample Usage
 
 Config
+
 ```bash
 import Keys from "@/utils/keys";
 import { FlipsideMailer } from "flipside-mailer";
@@ -16,7 +17,13 @@ export const mailer = new FlipsideMailer({
 });
 ```
 
-Send message
+Send message:
+
 ```bash
-await  mailer.send({});
+  const result: MailerResponse = await mailer.send({
+    to: "<recipient_email>",
+    subject: "Greetings!",
+    text: "Hello!",
+    html: `<p>Hey there, are you okay?</p>`,
+  });
 ```
