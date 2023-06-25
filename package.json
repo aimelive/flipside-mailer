@@ -1,6 +1,6 @@
 {
   "name": "flipside-mailer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight package for sending emails built on top of node mailer.",
   "repository": {
     "type": "git",

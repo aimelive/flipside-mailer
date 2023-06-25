@@ -1,4 +1,5 @@
 import Mail from "nodemailer/lib/mailer";
+import { MailSend } from "./sender";
 
 export interface MailerConfig {
   resolverUrl?: string;
@@ -23,24 +24,25 @@ export class FlipsideMailer {
 
   async send(mailOptions: MailerOptions): Promise<MailerResponse> {
     try {
-      const result = await fetch(
-        `${this.config.resolverUrl || "http:localhost:4000"}/api/send`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            auth: this.config,
-            mailOptions,
-          }),
-        }
-      );
-      const response = await result.json();
+      // const result = await fetch(
+      //   `${this.config.resolverUrl || "http:localhost:4000"}/api/send`,
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       Accept: "application/json",
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       auth: this.config,
+      //       mailOptions,
+      //     }),
+      //   }
+      // );
+      // const response = await result.json();
+      await MailSend({ auth: this.config, mailOptions });
       return {
         status: "SUCCESS",
-        message: response.message,
+        message: "Email sent successfully!",
       };
     } catch (error: any) {
       return {
