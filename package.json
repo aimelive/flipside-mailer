@@ -1,6 +1,6 @@
 {
   "name": "flipside-mailer",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A lightweight package for sending emails built on top of node mailer.",
   "repository": {
     "type": "git",
@@ -11,18 +11,14 @@
   "scripts": {
     "start": "npm run build && node ./build/index.js",
     "build": "tsc -p .",
-    "dev": "nodemon ./src/index.ts",
     "prepublish": "npm run build"
   },
   "author": "aimelive",
   "license": "ISC",
   "dependencies": {
-    "@types/express": "^4.17.17",
     "@types/node": "^20.3.1",
     "@types/nodemailer": "^6.4.8",
-    "express": "^4.18.2",
     "nodemailer": "^6.9.3",
-    "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.3"
   },
